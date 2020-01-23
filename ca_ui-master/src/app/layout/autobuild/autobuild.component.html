@@ -28,7 +28,7 @@
             <label class="form-check-label">Portfolio Name: </label>
           </div>
           <div class="col-sm-4" align="left">
-            <select class="form-control" id="ddl_projects" name="ddl_projects" (change)="getApps($event.target.value)" #projectName>                            
+            <select class="form-control" id="ddl_projects" name="ddl_projects" (change)="getApps($event.target.value)" #projectName required>                            
                                   <option value="0">Select an option</option>
                                   <!--<option>< New ></option>-->
                                   <option                                           
@@ -44,7 +44,7 @@
                 <label class="form-check-label">Application Name: </label>
               </div>
               <div class="col-sm-4" align="left">
-                <select class="form-control" id="ddl_appName" name="ddl_appName" #appName>                            
+                <select class="form-control" id="ddl_appName" name="ddl_appName" #appName required="required">                            
                                       <option value="0">Select an option</option>
                                       <!--<option>< New ></option>-->
                                       <option                                           
@@ -60,39 +60,10 @@
                 <label class="form-check-label"> Application Tag: </label>
               </div>
               <div class="col-sm-4" align="left">
-                  <textarea id="ddl_appTag" rows="1"  cols= "33" ng-model="ddl_appTag"  #appTag > </textarea>
-               <!-- <select class="form-control" id="ddl_projects" name="ddl_projects" >                            
-                                      <input type = "text" value="0"/>
-                                      <textarea></textarea>
-                                   
-                              </select>-->
+                  <input type="text" required="required" id="ddl_appTag" rows="1"  cols= "33" ng-model="ddl_appTag"  #appTag > </textarea>
               </div>
           </div>
-      <!--
-          <div class="row" style="margin:10px 0px 10px 0px">
-              <div class="col-sm-3">
-                <label class="form-check-label"> OS: </label>
-              </div>
-              <div class="col-sm-4" align="left">
-                <select class="form-control" id="ddl_projects" name="ddl_projects" >                            
-                                      <option value="0">Select an option</option>
-                                     
-                              </select>
-              </div>
-          </div>-->
-          <!-- <div class="row" style="margin:10px 0px 10px 0px">
-            <div class="col-sm-3">
-              <label class="form-check-label"> App Type : </label>
-            </div>
-            <div class="col-sm-4" align="left">
-              <select class="form-control" id="ddl_projects" name="ddl_projects" #appType>                            
-                                    <option value="0">Select an option</option>
-                                   <option>Java</option>
-                                   <option>PHP</option>
-                                   <option>Scala</option>
-                            </select>
-            </div>
-        </div> -->
+    
           <div class="row" style="margin:10px 0px 10px 0px">
               <div class="col-sm-3">
                 <label class="form-check-label"> App Server : </label>
@@ -106,9 +77,11 @@
                               </select>
               </div>
           </div>     
-    
+            <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
+               
       </div> 
 <!-- App Details Ends  -->
+
 <!-- Code Repository Starts  -->
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
         <!-- <div class="row" style="margin:20px 0px 10px 0px">
@@ -298,22 +271,18 @@
    
     </div>
     <!--Base image Ends  -->
-    <!-- Build Start -->
-    <div class="tab-pane fade" id="build" role="tabpanel" aria-labelledby="build-tab">
+     <!-- Build Start -->
+    <div class="tab-pane fade" id="build" >
         <div class="row" style="margin:20px 0px 10px 0px">
             <div class="col-sm-3">
               <label class="form-check-label"> Build Type : </label>
             </div>
             <div class="col-sm-4" align="left">
-              <select class="form-control" id="ddl_projects" name="ddl_projects" #buildType>                            
+              <select class="form-control" id="ddl_projects" required="required" name="ddl_projects" #buildType>                            
                                     <option value="0">Select Type</option>
                                     <option value="Jenkins">Jenkins</option>
                                     
-                                    <!--<option>< New ></option>-->
-                                    <!-- <option                                           
-                                      *ngFor="let project of projects"
-                                      [value]="project.projectId"
-                                    >{{project.projectName}}</option>                                                        <option> <{{"New"}}> </option> -->
+                                   
                             </select>
             </div>
         </div>
@@ -323,7 +292,7 @@
               <label class="form-check-label"> Build Image Repository: </label>
             </div>
             <div class="col-sm-4" align="left">
-              <select class="form-control" id="ddl_projects" name="ddl_projects" #builtImageRepo>                            
+              <select class="form-control" id="ddl_projects" required="required" name="ddl_projects" #builtImageRepo>                            
                                     <option value="0">Select an repository</option>
                                     <option                                           
                                       *ngFor="let containerRepo of containerRepo"
@@ -338,6 +307,7 @@
               
             </div>
             <div class="col-sm-4" align="left">
+             <button class="btn btn-primary backBtn pull-left" type="button">Previous</button> 
              <button class="btn btn-default" (click)="jenkinsBuild(codeRepoPath,appName,builtImageRepo,appServer,codeRepo,language,codeType,repoType,buildType,appTag)" [disabled]="showLoad || completed">Build</button>
              
             </div>            
