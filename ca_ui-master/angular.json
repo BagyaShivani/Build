@@ -27,7 +27,7 @@
             "scripts": [
               "node_modules/chart.js/dist/Chart.js",
               "node_modules/jquery/dist/jquery.min.js",
-                "src/assets/wizard.js"
+               
             ]
           },
           "configurations": {
